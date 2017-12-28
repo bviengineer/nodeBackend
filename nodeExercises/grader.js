@@ -17,5 +17,5 @@ function average(arr){
     return Math.round(averageScore);
 }
 
-average(scores); // should return 94
-average(scores2); // should return 68
+console.log((average(scores)); // should return 94
+console.log(average(scores2)); // should return 68
