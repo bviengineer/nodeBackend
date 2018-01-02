@@ -2,7 +2,7 @@
 //Average Grade
 //Define a funciton named average
 //Should take a single parameter: an array of test scores (all numbers)
-//It should reeturn the average score in the array, rounded to the nearest whole number
+//It should return the average score in the array, rounded to the nearest whole number
 
 var scores = [90, 98, 89, 100, 100, 86, 94]; 
 
@@ -17,5 +17,5 @@ function average(arr){
     return Math.round(averageScore);
 }
 
-console.log((average(scores)); // should return 94
+console.log((average(scores))); // should return 94
 console.log(average(scores2)); // should return 68
