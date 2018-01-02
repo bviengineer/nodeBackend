@@ -1,0 +1,7 @@
+<h1>This is Results.ejs Page</h1>
+
+<p>Listing each Title</p>
+
+<% for(var i = 0; i < returnData.Search.length; i++){ %>
+    <li> <%= returnData.Search[i]["Title"] %> </li>
+<% } %>
