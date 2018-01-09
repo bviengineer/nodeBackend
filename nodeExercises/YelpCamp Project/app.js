@@ -1,8 +1,12 @@
 var express = require("express");
 var app = express();
+var bodyParser = require("body-parser");
 
-app.set("view engine", "ejs")
+app.use(bodyParser.urlencoded({extended: true}));
 
+app.set("view engine", "ejs");
+
+//ROUTES
 app.get("/", function(req, res){
     res.render("landing");
 });
@@ -24,6 +28,18 @@ app.get("/campgrounds", function(req, res){
     ]
     
     res.render("campgrounds", {campgroundsContainer: campgrounds});
+});
+
+app.post("/campgrounds", function(req, res){
+    //get data from form and add to campgrounds array
+    var newCampgroundName = req.body.campgrondName;
+    var newCampgroundImage = req.body.campgroundImage;
+    //redirecdt back to campgrons page 
+});
+
+//route to render a form to create a new campground
+app.get("/campgrounds/new", function(req, res){
+    res.render("new");
 });
 
 app.listen(process.env.PORT, process.env.IP, function(){
