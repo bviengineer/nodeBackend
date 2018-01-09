@@ -6,35 +6,39 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 app.set("view engine", "ejs");
 
+//campgrounds array
+var campgrounds = [
+        {
+            name: "Salmon Creek", 
+            image: "https://cdn.pixabay.com/photo/2016/08/28/17/05/camping-1626412__340.jpg"
+        },
+        {
+            name: "Granite Hill", 
+            image: "https://cdn.pixabay.com/photo/2017/11/24/03/04/tent-2974050__340.jpg"
+        },
+        {
+            name: "Mountain Goat's Rest", 
+            image: "https://cdn.pixabay.com/photo/2017/10/07/01/01/bach-leek-2825197__340.jpg"
+        }
+    ]
+
 //ROUTES
 app.get("/", function(req, res){
     res.render("landing");
 });
 
 app.get("/campgrounds", function(req, res){
-    var campgrounds = [
-        {
-            name: "Salmon Creek", 
-            image: "https://cdn.pixabay.com/photo/2017/09/10/15/04/the-chusovaya-river-2735864_960_720.jpg"
-        },
-        {
-            name: "Granite Hill", 
-            image: "https://cdn.pixabay.com/photo/2016/07/29/08/23/camp-1551246_960_720.jpg"
-        },
-        {
-            name: "Mountain Goat's Rest", 
-            image: "https://cdn.pixabay.com/photo/2016/07/29/08/25/camp-1551271_960_720.jpg"
-        }
-    ]
-    
     res.render("campgrounds", {campgroundsContainer: campgrounds});
 });
 
 app.post("/campgrounds", function(req, res){
     //get data from form and add to campgrounds array
-    var newCampgroundName = req.body.campgrondName;
-    var newCampgroundImage = req.body.campgroundImage;
+    var newCampgroundName = req.body.newCampgroundName;
+    var newCampgroundImage = req.body.newCampgroundImage;
+    var newCampgroundObject = {name: newCampgroundName, image: newCampgroundImage};
+    campgrounds.push(newCampgroundObject);
     //redirecdt back to campgrons page 
+    res.redirect("/campgrounds"); //will redirect to the campgrounds page declared in the app.get route
 });
 
 //route to render a form to create a new campground
