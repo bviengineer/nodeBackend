@@ -4,4 +4,21 @@
 
 <% for(var i = 0; i < returnData.Search.length; i++){ %>
     <li> <%= returnData.Search[i]["Title"] %> </li>
+<% } %> <h1>Search Results</h1>
+
+<p>Your search term returned the following results</p>
+
+<% for(var i = 0; i < returnData.Search.length; i++){ %>
+    <ul>
+        <li><strong> <%= returnData.Search[i]["Title"] %></strong> - <i><%= returnData.Search[i]["Year"] %> </i></li>
+    </ul>
 <% } %>
+
+<a href="/">Search Again</a>
+
+<!--
+NOTES TO SELF
+1. returnData (listed in the for loop) is the name given to the container that holds the search results. Look at the app.js file and the route for results, then examine where the returnData container is being used to hold the contents of the results of the search inside of the seachResults variable 
+
+1. Search is the name of the key in the movie_api. It's an object with an array consisting of other objects
+-->
