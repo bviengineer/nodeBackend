@@ -1,4 +1,7 @@
+<% include partials/header %>
 <h1>Campgrounds Route</h1>
+
+<a href="/campgrounds/new">Add new campground</a>
 
 <% for(var i =0; i < campgroundsContainer.length; i++){ %>
         <div>
@@ -6,3 +9,5 @@
             <img src="<%= campgroundsContainer[i].image; %>">
         </div>
     <% } %>
+    
+<% include partials/footer %>
