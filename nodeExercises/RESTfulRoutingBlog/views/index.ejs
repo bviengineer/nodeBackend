@@ -1,0 +1,11 @@
+<h1>This is the index.ejs file</h1>
+
+<% for(var i = 0; i < blogsContainer.length; i++){ %> 
+       <div>
+              <p><%= blogsContainer[i].title %></p>
+              <p><img src="<%= blogsContainer[i].image; %>"></p>
+              <p><%= blogsContainer[i].body %></p>
+              <p><%= blogsContainer[i].created %></p>
+       </div>
+<% } %>
+
