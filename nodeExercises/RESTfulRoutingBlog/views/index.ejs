@@ -1,11 +1,18 @@
+<% include ./partials/header %>
+
 <h1>This is the index.ejs file</h1>
 
 <% for(var i = 0; i < blogsContainer.length; i++){ %> 
        <div>
               <p><%= blogsContainer[i].title %></p>
               <p><img src="<%= blogsContainer[i].image; %>"></p>
-              <p><%= blogsContainer[i].body %></p>
+             <% if(blogsContainer.body && blogsContainer.body.length > 0) { %>
+                     <p><%= blogsContainer[i].body.substring(0, 100) %>...</p>
+              <% } %>
               <p><%= blogsContainer[i].created %></p>
+              <a href="/blogs/<%=blogsContainer[i]._id %>">Read More</a>
        </div>
 <% } %>
+
+<% include ./partials/footer %>
 
