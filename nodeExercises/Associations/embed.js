@@ -25,13 +25,13 @@ var userSchema = new mongoose.Schema({
 var User = mongoose.model("User", userSchema); //User will be the name of the table while userSchema will be the model it uses to create the User table
 var postModel = mongoose.model("Post", postSchema); //Post will be the name of the table while postSchema will be the model it uses to create the Post table
 
-//Creation of new user
+//Creation of new user - Charlie
 var newUser = new User({
     name: "Charlie Brown",
     email: "charlie@brown.edu" 
 });
 
-//Saving of new user
+//Saving of new user - Charlie
 newUser.save(function(err, user){
     if(err){
         console.log(err);
@@ -40,17 +40,19 @@ newUser.save(function(err, user){
     }
 });
 
+//Creation of new user - Hermione
 var newUser = new User({
     name: "Hermione Granger",
     email: "hermione@somedomain.edu" 
 });
 
+//Addition of a post by Hermione's 
 newUser.posts.push({
     title: "How to become a professional singer",
     content: "Go to a singing class or get specialized training from a professional vocalist"
 });
 
-//Saving of new user
+//Saving of new user - Hermione
 newUser.save(function(err, user){
     if(err){
         console.log(err);
@@ -74,7 +76,7 @@ newPost.save(function(err, post){
     }
 }); 
 
-//code to find a user
+//code to find a user in database
 User.findOne({name: "Hermione Granger"}, function(err, user){
     if(err){
         console.log(err);
