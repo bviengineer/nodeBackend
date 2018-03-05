@@ -31,6 +31,16 @@ var newUser = new User({
     email: "charlie@brown.edu" 
 });
 
+var newUser = new User({
+    name: "Hermione Granger",
+    email: "hermione@somedomain.edu" 
+});
+
+newUser.posts.push({
+    title: "How to become a professional singer",
+    content: "Go to a singing class or get specialized training from a professional vocalist"
+});
+
 
 //Saving of new user
 newUser.save(function(err, user){
