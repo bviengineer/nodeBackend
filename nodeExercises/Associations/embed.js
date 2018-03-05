@@ -38,7 +38,7 @@ newUser.save(function(err, user){
     }
 });
 
-/constructor for new post
+//constructor for new post
 var newPost = new Post({
     title: "Reflections on Apples",
     content: "They are delicious"
