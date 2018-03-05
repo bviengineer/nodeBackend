@@ -37,3 +37,18 @@ newUser.save(function(err, user){
         console.log(user);
     }
 });
+
+/constructor for new post
+var newPost = new Post({
+    title: "Reflections on Apples",
+    content: "They are delicious"
+});
+
+//saving new post to database
+newPost.save(function(err, post){
+    if(err){
+        console.log(err);
+    } else {
+        console.log(post);
+    }
+}); 
