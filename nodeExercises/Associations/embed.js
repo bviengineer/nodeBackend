@@ -73,3 +73,12 @@ newPost.save(function(err, post){
         console.log(post);
     }
 }); 
+
+//code to find a user
+User.findOne({name: "Hermione Granger"}, function(err, user){
+    if(err){
+        console.log(err);
+    } else {
+        console.log(user);
+    }  
+});
