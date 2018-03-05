@@ -21,3 +21,19 @@ var postSchema = new mongoose.Schema({
 //4. create DATA model from the schema
 var User = mongoose.model("User", userSchema); //User will be the name of the table while userSchema will be the model it uses to create the User table
 var postModel = mongoose.model("Post", postSchema); //Post will be the name of the table while postSchema will be the model it uses to create the Post table
+
+//Creation of new user
+var newUser = new User({
+    name: "Charlie Brown",
+    email: "charlie@brown.edu" 
+});
+
+
+//Saving of new user
+newUser.save(function(err, user){
+    if(err){
+        console.log(err);
+    } else {
+        console.log(user);
+    }
+});
