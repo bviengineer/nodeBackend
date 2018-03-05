@@ -76,11 +76,23 @@ newPost.save(function(err, post){
     }
 }); 
 
-//code to find a user in database
+//code to find a user in database & pushes a new post to the database after finding the user if there's no error
 User.findOne({name: "Hermione Granger"}, function(err, user){
     if(err){
         console.log(err);
     } else {
-        console.log(user);
+        //pushses a new "user-related" post to database if the finding of the specified user does not fail        
+        user.posts.push({
+            title: "Destination to visit",
+            content: "British Virgin Islands located in the Caribbean."
+        });
+        //saves new post
+        user.save(function(err, user){
+            if(err){
+                console.log(err);
+            } else{
+                console.log(user);
+            }
+        });
     }  
 });
