@@ -14,6 +14,8 @@ var postSchema = new mongoose.Schema({
     title: String,
     content: String
 });
+
+//user schema
 var userSchema = new mongoose.Schema({
     name: String,
     email: String,
